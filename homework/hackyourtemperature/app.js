@@ -4,9 +4,12 @@ import keys from "./sources/keys.js";
 
 import { getCelcius, getErrorObj, getObj } from "./utils/serverUtils.js";
 import {
+  API_KEY_PARAM,
   BAD_REQUEST_CODE,
+  BASE_URL,
   CITY_NAME_ERROR,
   NOT_FOUND_CODE,
+  WEATHER_PARAM,
   SERVER_ERROR_CODE,
   SUCCESS_CODE,
 } from "./sources/contants.js";
@@ -26,7 +29,7 @@ const processErrorResponse = (res, msg, statusCode) => {
 const getWeather = async (cityName) => {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${keys.API_KEY}`
+      `${BASE_URL}${WEATHER_PARAM}${cityName}${API_KEY_PARAM}${keys.API_KEY}`
     );
 
     const js = await response.json();
