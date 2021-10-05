@@ -4,9 +4,7 @@ const app = express();
 const fs = require("fs");
 
 const isInvalid = (req) => {
-  if (typeof req.body.content == "undefined") {
-    return true;
-  } else return false;
+  return typeof req.body.content == "undefined";
 };
 app.use(express.json());
 
