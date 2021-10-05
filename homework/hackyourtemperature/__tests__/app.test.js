@@ -13,7 +13,7 @@ describe("GET /", () => {
 });
 describe("POST /weather", () => {
   describe("when the city is missing", () => {
-    test("should respond with a status code of 400", async () => {
+    it("should respond with a status code of 400", async () => {
       const bodyData = {};
       const response = await request.post("/weather").send(bodyData);
       expect(response.statusCode).toBe(400);
